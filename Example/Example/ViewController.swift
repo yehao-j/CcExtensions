@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CandyExtension
+import CcExtensions
 import RxSwift
 
 class ViewController: UIViewController {
