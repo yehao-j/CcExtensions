@@ -1,7 +1,7 @@
 PODS:
-  - CcExtension/Core (4.2.1)
-  - CcExtension/RxSwift (4.2.1):
-    - CcExtension/Core
+  - CcExtensions/Core (4.2.1)
+  - CcExtensions/RxSwift (4.2.1):
+    - CcExtensions/Core
     - RxCocoa (>= 4.3.0)
     - RxSwift (>= 4.3.0)
   - RxAtomic (4.4.1)
@@ -11,7 +11,7 @@ PODS:
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
-  - CcExtension/RxSwift (from `../`)
+  - CcExtensions/RxSwift (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -20,15 +20,15 @@ SPEC REPOS:
     - RxSwift
 
 EXTERNAL SOURCES:
-  CcExtension:
+  CcExtensions:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CcExtension: 6223c459ea780fa066f67437dd7b5285bacff2a8
+  CcExtensions: ffaa4c0eee9567fb360bba96cac7aff28bdb167d
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
 
-PODFILE CHECKSUM: 15f64dfd655ee2be2410912ca068e8430c28de3d
+PODFILE CHECKSUM: 1521bdfbcd19b08a85ae35ad84ae136886ba39b3
 
 COCOAPODS: 1.6.0

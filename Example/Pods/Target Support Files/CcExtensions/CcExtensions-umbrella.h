@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double CcExtensionVersionNumber;
-FOUNDATION_EXPORT const unsigned char CcExtensionVersionString[];
+FOUNDATION_EXPORT double CcExtensionsVersionNumber;
+FOUNDATION_EXPORT const unsigned char CcExtensionsVersionString[];
 
