@@ -1,0 +1,47 @@
+{
+  "name": "CcExtension",
+  "version": "4.2.1",
+  "summary": "扩展",
+  "homepage": "https://github.com/J-yezi/CcExtension",
+  "license": "MIT",
+  "authors": {
+    "J-yezi": "yehao1020@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/J-yezi/CcExtension.git",
+    "tag": "4.2.1"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Sources/Core/**/*.swift",
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    },
+    {
+      "name": "RxSwift",
+      "source_files": "Sources/RxSwift/**/*.swift",
+      "dependencies": {
+        "CcExtension/Core": [
+
+        ],
+        "RxSwift": [
+          ">=4.3.0"
+        ],
+        "RxCocoa": [
+          ">=4.3.0"
+        ]
+      },
+      "frameworks": [
+        "Foundation",
+        "UIKit"
+      ]
+    }
+  ]
+}

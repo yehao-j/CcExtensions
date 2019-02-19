@@ -1,0 +1,6 @@
+framework module CcExtension {
+  umbrella header "CcExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
