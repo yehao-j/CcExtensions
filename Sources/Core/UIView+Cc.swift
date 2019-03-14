@@ -145,10 +145,6 @@ extension UIView {
     public func removeSubviews() {
         subviews.forEach { $0.removeFromSuperview() }
     }
-
-    public func addSubviews(_ subviews: UIView...) {
-        subviews.forEach(addSubview)
-    }
     
     public func removeGestures() {
         gestureRecognizers?.forEach { removeGestureRecognizer($0) }
