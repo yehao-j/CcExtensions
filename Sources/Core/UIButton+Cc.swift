@@ -158,34 +158,4 @@ extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 0, left: space / 2, bottom: 0, right: -space / 2)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -space / 2, bottom: 0, right: space / 2)
     }
-    
-    public func topIcon(space: CGFloat = 0) {
-        guard self.bounds.size != .zero else {
-            print("需要先设置UIButton的size")
-            return
-        }
-        
-        let imageWidth = imageView?.image?.size.width ?? 0
-        let imageHeight = imageView?.image?.size.height ?? 0
-        let titleWidth = titleLabel?.bounds.width ?? 0
-        let titleHeight = titleLabel?.bounds.height ?? 0
-        
-        titleEdgeInsets = UIEdgeInsets(top: (imageHeight + space) / 2, left: -imageWidth / 2, bottom: -(imageHeight + space) / 2, right: imageWidth / 2)
-        imageEdgeInsets = UIEdgeInsets(top: -(titleHeight + space) / 2, left: titleWidth / 2, bottom: (titleHeight + space) / 2, right: -titleWidth / 2)
-    }
-    
-    public func bottomIcon(space: CGFloat = 0) {
-        guard self.bounds.size != .zero else {
-            print("需要先设置UIButton的size")
-            return
-        }
-        
-        let imageWidth = imageView?.image?.size.width ?? 0
-        let imageHeight = imageView?.image?.size.height ?? 0
-        let titleWidth = titleLabel?.bounds.width ?? 0
-        let titleHeight = titleLabel?.bounds.height ?? 0
-        
-        titleEdgeInsets = UIEdgeInsets(top: -(imageHeight + space) / 2, left: -imageWidth / 2, bottom: (imageHeight + space) / 2, right: imageWidth / 2)
-        imageEdgeInsets = UIEdgeInsets(top: (titleHeight + space) / 2, left: titleWidth / 2, bottom: -(titleHeight + space) / 2, right: -titleWidth / 2)
-    }
 }

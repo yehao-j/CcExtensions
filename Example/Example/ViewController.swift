@@ -17,18 +17,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        button = CustomButton(frame: CGRect(x: 100, y: 300, width: 100, height: 100))
-        button.titleForNormal = "瞄一眼"
-        button.imageForNormal = #imageLiteral(resourceName: "icon_eye")
-        button.titleForFont = UIFont.systemFont(ofSize: 17)
-        button.backgroundColor = UIColor.red
-        button.topIcon()
-        view.addSubview(button)
+        print("--------- \("2.1".cgFloat())")
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("3------\(button.titleLabel?.bounds)")
+        
     }
     
     @IBAction func click(_ sender: Any) {

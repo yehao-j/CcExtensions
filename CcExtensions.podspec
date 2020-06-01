@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name         = 'CcExtensions'
-    s.version      = '5.0.0'
+    s.version      = '5.0.1'
     s.summary      = '扩展'
     s.homepage     = 'https://github.com/J-yezi/CcExtensions'
     s.license      = 'MIT'

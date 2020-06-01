@@ -69,25 +69,19 @@ extension String {
         return nil
     }
     
-    public func float(locale: Locale = .current) -> Float? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self) as? Float
+    public var float: Float? {
+        return Float(self)
     }
     
-    public func double(locale: Locale = .current) -> Double? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self) as? Double
+    public var double: Double? {
+        return Double(self)
     }
     
-    public func cgFloat(locale: Locale = .current) -> CGFloat? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self) as? CGFloat
+    public var cgFloat: CGFloat? {
+        if let d = double {
+            return CGFloat(d)
+        }
+        return nil
     }
     
     public var int: Int? {
@@ -98,7 +92,7 @@ extension String {
 //MARK: - Methods
 extension String {
     public func firstIndex(of string: String) -> Int? {
-        return map({String($0)}).index(of: string)
+        return map({String($0)}).firstIndex(of: string)
     }
     
     public func dropEnd(_ length: Int = 1) -> String? {
@@ -123,7 +117,7 @@ extension String {
         } else {
             s = (self as NSString).boundingRect(with: size, options: [.usesLineFragmentOrigin, .usesFontLeading], attributes: [.font: font], context: nil)
         }
-        return CGSize(width: s.width, height: CGFloat(ceilf(Float(s.height))))
+        return CGSize(width: CGFloat(ceilf(Float(s.width))), height: CGFloat(ceilf(Float(s.height))))
     }
     
     public func start(with prefix: String, caseSensitive: Bool = false) -> Bool {

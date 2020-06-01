@@ -60,7 +60,7 @@ extension CGFloat {
 //MARK: - Methods
 extension CGFloat {
     /// 返回小数点后几位
-    public func decimalPoint(_ point: Int) -> String {
+    public func decimalPoint(_ point: Int = 1) -> String {
         return String(format: "%.\(point)f", self)
     }
 }
