@@ -33,7 +33,7 @@ extension Calendar {
     }
 
     public func lunarYearName(by year: Int) -> String? {
-        guard self.identifier != .chinese else {
+        guard self.identifier == .chinese else {
             return nil
         }
         
@@ -46,7 +46,7 @@ extension Calendar {
     
     /// 获取当前年份的农历第一个天
     public func lunarFirsrDay(year: Int) -> Date? {
-        guard self.identifier != .chinese else {
+        guard self.identifier == .chinese else {
             return nil
         }
         
@@ -61,7 +61,7 @@ extension Calendar {
     
     /// 判断当前公历年包含的农历月 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     public func lunarMonths(by year: Int) -> [Int]? {
-        guard self.identifier != .chinese else {
+        guard self.identifier == .chinese else {
             return nil
         }
         
