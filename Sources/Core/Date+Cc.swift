@@ -167,3 +167,98 @@ extension Date {
         return Calendar.current.date(byAdding: -right, to: left)
     }
 }
+
+//MARK: - 农历
+extension Date {
+    /// 天干
+    private var celestialStem: [String] {
+        return ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"]
+    }
+    
+    /// 地支
+    private var earthlyBranches: [String] {
+        return ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+    }
+    
+    /// 当前年份的天干地支名称
+    private var celestialStemEarthlyBranches: [String] {
+        var array = [String]()
+        (0..<60).forEach { i in
+            let dc = i % 10
+            let de = i % 12
+            
+            array.append(celestialStem[dc] + earthlyBranches[de])
+        }
+        return array
+    }
+    
+    private var monthNameList: [String] {
+        return ["正月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "冬月", "腊月"]
+    }
+    
+    private var dayNameList: [String] {
+        return ["初一",  "初二",  "初三",  "初四",  "初五",  "初六",  "初七",  "初八",  "初九",  "初十",  "十一",  "十二",  "十三",  "十四",  "十五",  "十六",  "十七",  "十八",  "十九",  "二十",  "廿一",  "廿二",  "廿三",  "廿四",  "廿五",  "廿六",  "廿七",  "廿八",  "廿九", "三十"]
+    }
+    
+    var lunarCalendar: Calendar {
+        return Calendar(identifier: .chinese)
+    }
+    
+    /// 农历月份
+    var lunarMonth: Int {
+        return lunarCalendar.component(.month, from: self)
+    }
+    
+    /// 农历月份中文
+    var lunarMonthName: String {
+        let lunarMonth = self.lunarMonth
+        if lunarMonth > 0 && lunarMonth < 13 {
+            if isLeapMonth {
+                return "闰" + monthNameList[lunarMonth - 1]
+            }
+            return monthNameList[lunarMonth - 1]
+        }
+        return ""
+    }
+    
+    // 农历天
+    var lunarDay: Int {
+        return lunarCalendar.component(.day, from: self)
+    }
+    
+    /// 农历天中文
+    var lunarDayName: String {
+        let lunarDay = self.lunarDay
+        if lunarDay > 0 && lunarDay < 31 {
+            return dayNameList[lunarDay - 1]
+        }
+        return ""
+    }
+    
+    // 农历年
+    var lunarYear: Int {
+        return lunarCalendar.component(.year, from: self)
+    }
+    
+    /// 农历年中文
+    var lunarYearName: String {
+        let lunarYear = self.lunarYear
+        if lunarYear > 0 && lunarYear < 61 {
+            return celestialStemEarthlyBranches[lunarYear - 1]
+        }
+        return ""
+    }
+    
+    /// 上一个月同一天
+    func lastMonthSameDay(calendar: Calendar) -> Date? {
+        return calendar.date(byAdding: .month, value: -1, to: self)
+    }
+    
+    /// 是否是闰月
+    var isLeapMonth: Bool {
+        if let date = lastMonthSameDay(calendar: lunarCalendar) {
+            return date.lunarMonth == self.lunarMonth
+        }
+        return false
+    }
+}
